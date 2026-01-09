@@ -1,4 +1,5 @@
-import { Product, ProductDetails } from "../_types/product";
+import { Product } from "../_types/product";
+import { ProductDetails } from "../_types/product-details";
 
 const BASE_URL: string = 'https://fakestoreapi.com/products';
 

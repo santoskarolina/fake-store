@@ -1,23 +1,17 @@
-import { ProductDetails } from '../../_types/product';
 import { getProductDetails } from '../../_services/api';
 import Header from '../../_components/header';
 import Breadcrumb from '../../_components/breadcrumb';
+import { ProductDetails } from '../../_types/product-details';
 
-export default async function ProductDetail({
-  params,
-}: {
-  params: Promise<{ id: number }>
-}) {
-
+export default async function ProductDetail({ params }: { params: Promise<{ id: number }> }) {
   const { id } = await params;
   const product: ProductDetails = await getProductDetails(id);
    
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans">
+    <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
       <Header />
       <Breadcrumb product={product} />
       <div className="grid w-full max-w-5xl gap-8 md:grid-cols-2 p-8 rounded-3xl">
-        
         <div className="flex items-center justify-center bg-zinc-100 rounded-2xl overflow-hidden p-8 border border-zinc-200">
           <img 
             src={product.image} 
@@ -29,21 +23,13 @@ export default async function ProductDetail({
         <div className="flex flex-col justify-center space-y-6">
           <div className="space-y-2">
             <span className="text-sm font-semibold uppercase tracking-widest text-blue-600">Categoria: {product.category}</span>
-            <h1 className="text-3xl font-extrabold text-zinc-900 leading-tight">
-              {product.title}
-            </h1>
+            <h1 className="text-3xl font-extrabold text-zinc-900 leading-tight">{product.title}</h1>
           </div>
 
           <div className="space-y-4">
-            <p className="text-3xl font-bold text-zinc-800">
-              R$ {product.price}
-            </p>
-            <p className='text-zinc-800'>
-              {product.rating.rate} ({product.rating.count} Avaliações)
-            </p>
-            <p className="text-zinc-600 leading-relaxed text-lg">
-              {product.description}
-            </p>
+            <p className="text-3xl font-bold text-zinc-800">R$ {product.price}</p>
+            <p className='text-zinc-800'>{product.rating.rate} ({product.rating.count} Avaliações)</p>
+            <p className="text-zinc-600 leading-relaxed text-lg">{product.description}</p>
           </div>
 
           <div className="pt-6 space-y-4">

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useProductStore } from "../_store/useProductStore";
 
-const ProductsList = () => {
+const Products = () => {
     const products = useProductStore((state) => state.displayProducts);
     const sortBy = useProductStore((s) => s.sortBy);
 
@@ -36,4 +36,4 @@ const ProductsList = () => {
     )
 }
 
-export default ProductsList;
+export default Products;

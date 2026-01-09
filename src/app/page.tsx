@@ -1,7 +1,7 @@
 import Header from "./_components/header";
 import Icons from "./_components/icons";
-import ProductsList from "./_components/productsList";
-import StoreInitializer from "./_components/StoreInitializer";
+import Products from "./_components/products";
+import StoreInitializer from "./_components/storeInitializer";
 import { getProducts } from "./_services/api";
 import { Product } from "./_types/product";
 
@@ -18,7 +18,7 @@ export default async function Home() {
       </div>
       <div className="max-w-5xl">
         <Icons />
-        <ProductsList />
+        <Products />
       </div>
     </div>
   );

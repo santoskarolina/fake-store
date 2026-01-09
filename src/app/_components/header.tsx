@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useProductStore } from "../_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
@@ -9,19 +9,25 @@ const Header = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [searchTitle, setSearchTitle] = useState<string>(searchParams.get('searchTitle') || '');
-  const [searchCtegory, setCategory] = useState<string>(searchParams.get('searchCtegory') || '');
+  const titleParam = searchParams.get('searchTitle');
+  const categoryParam = searchParams.get('searchCtegory');
+  const [searchTitle, setSearchTitle] = useState<string>(titleParam || '');
+  const [searchCtegory, setCategory] = useState<string>(categoryParam || '');
   const categories = useProductStore((state) => state.categories);
 
   const filter = useProductStore((s) => s.filter);
   const handleSearch = () => {
+    filter(searchTitle, searchCtegory);
     if (!!params.id) {
       const query = new URLSearchParams({ searchTitle, searchCtegory }).toString();
       router.push(`/?${query}`);
     }
-    filter(searchTitle, searchCtegory);
   }
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
+
+  useMemo(() => {
+     filter(searchTitle, searchCtegory);
+  }, [titleParam, categoryParam, filter]);
 
   return (
     <header className="flex bg-[#292715] w-full p-4 border-b-yellow-500 border-b-2 gap-4 items-center justify-center">
