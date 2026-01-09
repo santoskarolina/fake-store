@@ -6,3 +6,10 @@ export interface Product {
   price: number;
   title: string;
 }
+
+export type ProductDetails = Product & {
+  rating: {
+    count: number;
+    rate: number
+  }
+}

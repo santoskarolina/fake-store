@@ -1,18 +1,25 @@
-import Header from "./components/header";
-import ProductsList from "./components/productsList";
-import { getProducts } from "./services/api";
+import Header from "./_components/header";
+import Icons from "./_components/icons";
+import ProductsList from "./_components/productsList";
+import StoreInitializer from "./_components/StoreInitializer";
+import { getProducts } from "./_services/api";
+import { Product } from "./_types/product";
 
 export default async function Home() {
-  const products = await getProducts();
-  const categories = [...new Set(products.map((p: any) => p.category))];
+  const products: Product[] = await getProducts();
+  const categories: string[] = [...new Set(products.map((p: any) => p.category))];
 
   return (
-    <div className="flex  flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      <Header categories={categories} />
+    <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans">
+      <StoreInitializer products={products} categories={categories}/>
+      <Header />
       <div>
-        <img src="mainBanner.png" alt="" />
+        <img src="banner.jpg" alt="Fake Store" />
       </div>
-      <ProductsList products={products}/>
+      <div className="max-w-5xl">
+        <Icons />
+        <ProductsList />
+      </div>
     </div>
   );
 }
