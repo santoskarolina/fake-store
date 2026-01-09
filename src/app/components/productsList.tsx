@@ -9,7 +9,7 @@ const ProductsList = ({ products }: { products: Product[] }) => {
     }
 
     return (
-        <div className="flex flex-col max-w-5xl mt-4">
+        <div className="flex flex-col max-w-5xl mt-4 p-4 gap-4">
             <div className="flex gap-2 text-gray-800">
                 <div>Ordenar por</div>
                 <select name="ordenation" id="ordenation" className="border rounded px-2" onChange={onChangeOrdenation}>
@@ -19,7 +19,7 @@ const ProductsList = ({ products }: { products: Product[] }) => {
                 </select>
 
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {products.map((product) => (
                     <div key={product.id} className="border p-4 rounded-lg shadow">
                         <img src={product.image} alt={product.title} className="h-40 mx-auto" />
