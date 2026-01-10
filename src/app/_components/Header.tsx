@@ -4,9 +4,11 @@ import { useMemo, useState } from "react";
 import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { connection } from 'next/server'
 import Image from "next/image";
 
-const Header = () => {
+const Header = async () => {
+  await connection();
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
