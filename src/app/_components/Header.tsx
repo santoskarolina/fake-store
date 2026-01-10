@@ -30,8 +30,8 @@ const Header = () => {
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   return (
-    <header className="flex bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
-      <div className="w-40 shrink-0">
+    <header className="flex flex-col md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
+      <div className="w-full md:w-40 flex justify-center md:justify-start shrink-0">
         <Link href={`/`}>
           <Image
             src="/vercel.svg"
@@ -57,7 +57,7 @@ const Header = () => {
             name="category-filter"
             value={searchCategory}
             id="category-filter"
-            className="h-10 border border-l-0 bg-gray-50 px-2 text-sm text-gray-700 outline-none"
+            className="h-10 border border-l-0 bg-gray-50 px-1 md:px-2 text-xs md:text-sm text-gray-700 outline-none max-w-[100px] md:max-w-none"
           >
             <option value="">Todas as Categorias</option>
             {categories.map((category) => (
@@ -78,7 +78,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="w-40 shrink-0 hidden md:block"></div>
+      <div className="hidden md:block w-40 shrink-0"></div>
     </header>
   );
 };
