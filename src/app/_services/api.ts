@@ -13,7 +13,12 @@ const options: RequestInit = {
 
 export const getProducts = async (): Promise<Product[]> => {
   const response = await fetch(BASE_URL, options);
-  if (!response.ok) return []
+  console.log('log: initial get')
+  if (!response.ok) {
+    console.log('log: not ok')
+    return []
+  }
+    console.log('log: ok')
   return response.json();
 };
 
