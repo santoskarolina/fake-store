@@ -19,7 +19,7 @@ const Header = () => {
   const filter = useProductStore((s) => s.filter);
   const handleSearch = () => {
     filter(searchTitle, searchCtegory);
-    if (!!params.id) {
+    if (!!params && !!params.id) {
       const query = new URLSearchParams({ searchTitle, searchCtegory }).toString();
       router.push(`/?${query}`);
     }
