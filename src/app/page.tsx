@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import Header from "./_components/Header";
-import HomeContainer from "./_components/Home";
-import Icons from "./_components/Icons";
+import Header from "@/src/app/_components/Header";
+import HomeContainer from "@/src/app/_components/Home";
+import Icons from "@/src/app/_components/Icons";
 import Image from "next/image";
-import Loading from "./_components/loading";
+import Loading from "@/src/app/_components/loading";
 
 export default async function Home() {
   return (
