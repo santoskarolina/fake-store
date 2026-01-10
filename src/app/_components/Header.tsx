@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 
-const HeaderBar = () => {
+const Header = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -86,4 +86,10 @@ const HeaderBar = () => {
   );
 };
 
-export default HeaderBar
+export default function HeaderBar() {
+  return (
+    <Suspense fallback={<div className="h-16 bg-[#292715] w-full" />}>
+      <Header />
+    </Suspense>
+  )
+}
