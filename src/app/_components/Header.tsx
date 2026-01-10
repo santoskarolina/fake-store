@@ -1,14 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { connection } from 'next/server'
 import Image from "next/image";
 
-const Header = async () => {
-  await connection();
+const Header = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -88,4 +86,10 @@ const Header = async () => {
   );
 };
 
-export default Header;
+export function HeaderBar() {
+  return (
+    <Suspense>
+      <Header />
+    </Suspense>
+  )
+}

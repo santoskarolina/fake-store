@@ -1,4 +1,4 @@
-import Header from '@/src/app/_components/Header';
+import { HeaderBar } from '@/src/app/_components/Header';
 import { Suspense } from 'react';
 import Loading from './components/loading';
 import Breadcrumb from '@/src/app/_components/Breadcrumb';
@@ -15,7 +15,7 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
    
   return (
     <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
-      <Header />
+      <HeaderBar />
       <Breadcrumb name={name} category={category}/>
       <Suspense fallback={<Loading />}>
         <Details id={id} />
