@@ -5,12 +5,12 @@ const BASE_URL: string = 'https://fakestoreapi.com/products';
 
 export const getProducts = async (): Promise<Product[]> => {
   const response = await fetch(BASE_URL);
-  if (!response.ok) throw new Error('Falha ao carregar produtos');
+  if (!response.ok) return []
   return response.json();
 };
 
 export const getProductDetails= async (id: number): Promise<ProductDetails> => {
   const response = await fetch(`${BASE_URL}/${id}`);
-  if (!response.ok) throw new Error('Falha ao carregar produto');
+  if (!response.ok) return { category: '', description: '', id: 0, image: '', price: 0, rating: { count:1, rate: 1} , title:''};
   return response.json();
 };

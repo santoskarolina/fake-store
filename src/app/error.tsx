@@ -1,4 +1,4 @@
-'use client'; // Componentes de erro DEVEM ser client-side
+'use client';
 
 export default function Error({
   error,
