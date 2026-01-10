@@ -20,9 +20,9 @@ const Icons = () => {
   ];
 
   return (
-    <div className="flex justify-around p-4 w-full">
+    <div className="flex justify-around p-4">
       {icons.map((icon) => (
-        <div key={icon.title} className="flex flex-col gap-1 items-center">
+        <div key={icon.title} className="flex flex-col gap-1 items-center text-center">
           <Image src={icon.img} width={24} height={24} alt={icon.title}></Image>
           <p className="text-gray-800 font-bold">{icon.title}</p>
           <span className="text-gray-700">{icon.description}</span>

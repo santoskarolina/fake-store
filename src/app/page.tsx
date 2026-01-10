@@ -9,7 +9,7 @@ import { connection } from 'next/server'
 export default async function Home() {
   await connection()
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans">
+    <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
       <HeaderBar />
       <Image
         src="/banner.jpg"

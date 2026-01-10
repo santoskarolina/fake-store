@@ -7,7 +7,7 @@ const Breadcrumb = ({ name, category }: { name: string, category: string }) => {
   const router = useRouter();
 
   const goHome = () => {
-    const query = new URLSearchParams({ searchCtegory: category }).toString();
+    const query = new URLSearchParams({ searchCategory: category }).toString();
     router.push(`/?${query}`);
   };
 

@@ -23,13 +23,17 @@ export const useProductStore = create<ProductStore>((set) => ({
 
 const sortBy = (key: string, state: ProductStore) => {
   const itens = structuredClone(state.displayProducts);
-  if (key === "name") itens.sort((a, b) => a.title.localeCompare(b.title));
-  else if (key === "minValue") itens.sort((a, b) => a.price - b.price);
-  else itens.sort((a, b) => b.price - a.price);
+  const options: Record<string, any> = {
+    'name': () => itens.sort((a, b) => a.title.localeCompare(b.title)),
+    'minValue': () => itens.sort((a, b) => a.price - b.price),
+    'maxValue': () => itens.sort((a, b) => b.price - a.price),
+  }
+  if (!options[key]) return filter(state);
+  options[key]();
   return { displayProducts: itens };
 };
 
-const filter = (state: ProductStore, title: string, category: string) => {
+const filter = (state: ProductStore, title: string = '', category: string = '') => {
   return {
     displayProducts: state.allProducts.filter((product) => {
       const matchTitle = product.title.toLowerCase().includes(title.toLowerCase());

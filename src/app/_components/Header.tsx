@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useState } from "react";
 import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
@@ -10,25 +10,24 @@ const Header = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const titleParam = searchParams.get("searchTitle");
-  const categoryParam = searchParams.get("searchCtegory");
-  const [searchTitle, setSearchTitle] = useState<string>(titleParam || "");
-  const [searchCtegory, setCategory] = useState<string>(categoryParam || "");
+  const titleParam = searchParams.get("searchTitle") || "";
+  const categoryParam = searchParams.get("searchCategory") || "";
+
+  const [searchTitle, setSearchTitle] = useState<string>(titleParam);
+  const [searchCategory, setCategory] = useState<string>(categoryParam);
   const categories = useProductStore((state) => state.categories);
 
   const filter = useProductStore((s) => s.filter);
+
   const handleSearch = () => {
-    filter(searchTitle, searchCtegory);
     if (!!params && !!params.id) {
-      const query = new URLSearchParams({ searchTitle, searchCtegory }).toString();
+      const query = new URLSearchParams({ searchTitle, searchCategory }).toString();
       router.push(`/?${query}`);
     }
+    filter(searchTitle, searchCategory);
   };
-  const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
-  useMemo(() => {
-    filter(searchTitle, searchCtegory);
-  }, [titleParam, categoryParam, filter]);
+  const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   return (
     <header className="flex bg-[#292715] w-full p-4 border-b-yellow-500 border-b-2 gap-4 items-center justify-center">
@@ -39,7 +38,7 @@ const Header = () => {
             width={40}
             height={40}
             alt="Logo Marca da Loja Fake Store"
-          ></Image>
+          />
         </Link>
       </div>
 
@@ -56,15 +55,13 @@ const Header = () => {
           <select
             onChange={onChangeOrdenation}
             name="category-filter"
-            value={searchCtegory}
+            value={searchCategory}
             id="category-filter"
             className="h-10 border border-l-0 bg-gray-50 px-2 text-sm text-gray-700 outline-none"
           >
             <option value="">Todas as Categorias</option>
             {categories.map((category) => (
-              <option value={category} key={category}>
-                {category}
-              </option>
+              <option value={category} key={category}>{category}</option>
             ))}
           </select>
           <button
