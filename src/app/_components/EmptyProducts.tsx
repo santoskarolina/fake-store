@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const EmptyProducts = () => {
   return (
-    <div className="flex flex-col w-full items-center justify-center text-center bg-amber-100 flex-1">
+    <div className="flex flex-col w-full items-center justify-center text-center">
       <Image
         src="/empty-data.png"
         width={500}
