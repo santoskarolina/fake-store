@@ -7,7 +7,7 @@ import { Product } from "./_types/product";
 
 export default async function Home() {
   const products: Product[] = await getProducts();
-  const categories: string[] = [...new Set(products.map((p: any) => p.category))];
+  const categories: string[] = [...new Set(products.map(p => p.category))];
 
   return (
     <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans">
