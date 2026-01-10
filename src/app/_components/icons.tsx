@@ -1,5 +1,5 @@
 const Icons = () => {
-  const icons = [
+  const icons: { title: string, description: string, img: string }[] = [
     {
       title: "Frete Gratis",
       description: "A partir de R$ 999,99",
