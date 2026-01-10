@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useProductStore } from "../_store/useProductStore";
+import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
@@ -24,8 +24,7 @@ const Header = () => {
       router.push(`/?${query}`);
     }
   };
-  const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) =>
-    setCategory(e.target.value);
+  const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   useMemo(() => {
     filter(searchTitle, searchCtegory);

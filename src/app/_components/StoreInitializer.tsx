@@ -1,8 +1,8 @@
 'use client';
 
 import { useRef } from 'react';
-import { useProductStore } from '../_store/useProductStore';
-import { Product } from '../_types/product';
+import { useProductStore } from '@/src/app/_store/useProductStore';
+import { Product } from '@/src/app/_types/product';
 
 export default function StoreInitializer({ products, categories }: { products: Product[], categories: string[] }) {
   const initialized = useRef(false);

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useProductStore } from "../_store/useProductStore";
+import { useProductStore } from "@/src/app/_store/useProductStore";
 import Image from "next/image";
 
 const Products = () => {

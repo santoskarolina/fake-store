@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Product } from "../_types/product";
+import { Product } from "@/src/app/_types/product";
 
 interface ProductStore {
   allProducts: Product[];

@@ -1,8 +1,8 @@
-import Header from '../../_components/Header';
+import Header from '@/src/app/_components/Header';
 import { Suspense } from 'react';
-import Details from './components/Details';
 import Loading from './components/loading';
-import Breadcrumb from '../../_components/Breadcrumb';
+import Breadcrumb from '@/src/app/_components/Breadcrumb';
+import Details from './components/Details';
 
 interface ProductPageProps {
   params: Promise<{ id: number }>;
