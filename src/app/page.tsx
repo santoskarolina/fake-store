@@ -1,7 +1,7 @@
 import Header from "./_components/header";
 import Icons from "./_components/icons";
 import Products from "./_components/products";
-import StoreInitializer from "./_components/storeInitializer";
+import StoreInitializer from "./_components/StoreInitializer";
 import { getProducts } from "./_services/api";
 import { Product } from "./_types/product";
 
