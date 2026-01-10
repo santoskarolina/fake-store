@@ -4,15 +4,16 @@ import { useMemo, useState } from "react";
 import { useProductStore } from "../_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 const Header = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const titleParam = searchParams.get('searchTitle');
-  const categoryParam = searchParams.get('searchCtegory');
-  const [searchTitle, setSearchTitle] = useState<string>(titleParam || '');
-  const [searchCtegory, setCategory] = useState<string>(categoryParam || '');
+  const titleParam = searchParams.get("searchTitle");
+  const categoryParam = searchParams.get("searchCtegory");
+  const [searchTitle, setSearchTitle] = useState<string>(titleParam || "");
+  const [searchCtegory, setCategory] = useState<string>(categoryParam || "");
   const categories = useProductStore((state) => state.categories);
 
   const filter = useProductStore((s) => s.filter);
@@ -22,23 +23,24 @@ const Header = () => {
       const query = new URLSearchParams({ searchTitle, searchCtegory }).toString();
       router.push(`/?${query}`);
     }
-  }
-  const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
+  };
+  const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setCategory(e.target.value);
 
   useMemo(() => {
-     filter(searchTitle, searchCtegory);
+    filter(searchTitle, searchCtegory);
   }, [titleParam, categoryParam, filter]);
 
   return (
     <header className="flex bg-[#292715] w-full p-4 border-b-yellow-500 border-b-2 gap-4 items-center justify-center">
       <div className="w-40 shrink-0">
         <Link href={`/`}>
-          <img
+          <Image
             src="/vercel.svg"
-            alt="Fake Store"
-            className="w-10 h-10"
-            title="Logo Marca da Loja Fake Store"
-          />
+            width={40}
+            height={40}
+            alt="Logo Marca da Loja Fake Store"
+          ></Image>
         </Link>
       </div>
 
@@ -71,7 +73,12 @@ const Header = () => {
             className="h-10 border border-l-0 rounded-r-md bg-gray-50 px-2 text-sm text-gray-700 outline-none cursor-pointer"
             title="Realizar Pesquisa"
           >
-            <img src="/search-icon.png" alt="Icone para realizar Pesquisa" className="w-10" />
+            <Image
+              src="/search-icon.png"
+              width={40}
+              height={40}
+              alt="Icone para realizar Pesquisa"
+            ></Image>
           </button>
         </div>
       </div>

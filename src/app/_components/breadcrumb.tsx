@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ProductDetails } from "../_types/product-details";
 
-const Breadcrumb = ({ product }: { product: ProductDetails }) => {
+const Breadcrumb = ({ name, category }: { name: string, category: string }) => {
   const router = useRouter();
 
   const goHome = () => {
-    const query = new URLSearchParams({ searchCtegory: product.category }).toString();
+    const query = new URLSearchParams({ searchCtegory: category }).toString();
     router.push(`/?${query}`);
   };
 
@@ -18,9 +17,9 @@ const Breadcrumb = ({ product }: { product: ProductDetails }) => {
         Produtos
       </Link>
       <span className="font-medium truncate max-w-50 md:max-w-none">/</span>
-      <p onClick={goHome} className="hover:underline text-gray-300 transition-colors cursor-pointer"> {product.category}</p>
+      <p onClick={goHome} className="hover:underline text-gray-300 transition-colors cursor-pointer"> {category}</p>
       <span className="font-medium truncate max-w-50 md:max-w-none">/</span>
-      <p>{product.title}</p>
+      <p>{name}</p>
     </div>
   );
 };
