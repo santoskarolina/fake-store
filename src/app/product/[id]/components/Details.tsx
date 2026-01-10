@@ -61,7 +61,7 @@ export default function Details({ id }: { id: number }) {
         </div>
 
         <div className="pt-6 space-y-4">
-          <button className="w-full bg-zinc-900 text-white py-4 rounded-xl font-bold text-lg hover:bg-zinc-800 transition-colors shadow-lg active:scale-[0.98]">
+          <button className="w-full bg-brand-dark text-white py-4 rounded-xl font-bold text-lg hover:bg-zinc-800 transition-colors shadow-lg active:scale-[0.98]">
             Adicionar ao Carrinho
           </button>
           <button className="w-full bg-white border border-zinc-300 text-zinc-700 py-4 rounded-xl font-bold text-lg hover:bg-zinc-50 transition-colors">

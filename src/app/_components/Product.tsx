@@ -22,7 +22,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           query: { name: product.title, category: product.category },
         }}
       >
-        <button className="bg-zinc-500 text-white py-2 rounded-xl w-full cursor-pointer mt-4">
+        <button className="bg-brand-dark text-white py-2 rounded-xl w-full cursor-pointer mt-4">
           Ver Produto
         </button>
       </Link>
