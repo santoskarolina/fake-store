@@ -19,6 +19,20 @@ export const metadata: Metadata = {
   authors: [
     { name: "Ana Karolina", url: "https://github.com/santoskarolina" },
   ],
+   openGraph: {
+    title: 'Fake Store | Ana Karolina',
+    description: 'Teste técnico desenvolvido com Next.js',
+    url: 'https://fake-store-omega-ashen.vercel.app',
+    siteName: 'Fake Store',
+    images: [{
+      url: 'https://fake-store-omega-ashen.vercel.app/vercel-icon.png',
+      width: 1200,
+      height: 630,
+      alt: 'Preview da loja Fake Store',
+    }],
+    locale: 'pt-BR',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

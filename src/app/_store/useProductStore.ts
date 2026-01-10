@@ -23,7 +23,7 @@ export const useProductStore = create<ProductStore>((set) => ({
 
 const sortBy = (key: string, state: ProductStore) => {
   const itens = structuredClone(state.displayProducts);
-  const options: Record<string, any> = {
+  const options: Record<string, () => Product[]> = {
     'name': () => itens.sort((a, b) => a.title.localeCompare(b.title)),
     'minValue': () => itens.sort((a, b) => a.price - b.price),
     'maxValue': () => itens.sort((a, b) => b.price - a.price),

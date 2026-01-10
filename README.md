@@ -58,4 +58,5 @@ Embora o Vite seja uma excelente ferramenta para Single Page Applications (SPAs)
 
 
 - **Vite**
+
 Se o objetivo do projeto fosse uma aplicação interna (como um Dashboard de Admin) onde o SEO não é relevante e a infraestrutura de servidor precisa ser a mais simples possível (apenas arquivos estáticos), o Vite seria considerado pela sua velocidade de build e simplicidade de deploy em storages estáticos (como S3 ou Firebase Hosting).
