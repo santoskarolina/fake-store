@@ -33,6 +33,7 @@ Acesse http://localhost:3000 no seu navegador.
 - Server Components: Optei por realizar o fetch de dados no lado do servidor para melhorar o SEO e reduzir a carga de JavaScript no cliente.
 - Renderização Dinâmica (force-dynamic): Configurada para garantir que os dados da API externa sejam sempre buscados em tempo real, evitando cache estático viciado durante o build.
 - Zustand: Utilizado para gerenciar o estado global de produtos e categorias de forma leve
+- Data Fetching: Optei por realizar o fetch de dados no lado do cliente (CSR) utilizando useEffect. Embora Server Components sejam preferíveis para SEO, identifiquei instabilidades na comunicação entre o ambiente de execução da Vercel e a API externa (FakeStoreAPI) durante o processamento no servidor, garantindo assim que o usuário final sempre receba os dados independentemente de latências de rede no servidor.
 
 
 

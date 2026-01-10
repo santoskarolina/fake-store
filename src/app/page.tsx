@@ -1,11 +1,9 @@
 export const dynamic = 'force-dynamic';
 
-import { Suspense } from "react";
 import HeaderBar from "@/src/app/_components/Header";
 import HomeContainer from "@/src/app/_components/Home";
 import Icons from "@/src/app/_components/Icons";
 import Image from "next/image";
-import Loading from "@/src/app/_components/loading";
 
 export default async function Home() {
   return (
@@ -21,9 +19,7 @@ export default async function Home() {
       />
       <div className="max-w-5xl">
         <Icons />
-        <Suspense fallback={<Loading />}>
-          <HomeContainer />
-        </Suspense>
+        <HomeContainer />
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import { useProductStore } from "@/src/app/_store/useProductStore";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import ProductCard from "./Product";
-import Image from "next/image";
 import EmptyProducts from "./EmptyProducts";
 
 const Products = () => {
@@ -44,7 +43,7 @@ const Products = () => {
           ))}
         </div>
       ) : (
-        <EmptyProducts />
+        <EmptyProducts message="Sua busca não retornou resultados."/>
       )}
     </div>
   );

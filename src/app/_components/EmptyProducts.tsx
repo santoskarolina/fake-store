@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const EmptyProducts = () => {
+const EmptyProducts = ({ message }: { message: string }) => {
   return (
     <div className="flex flex-col w-full items-center justify-center text-center">
       <Image
@@ -11,7 +11,7 @@ const EmptyProducts = () => {
         className="h-auto object-cover"
       />
       <h1 className="text-gray-500 font-bold text-4xl">
-        Sua busca não retornou resultados
+        {message}
       </h1>
       <h2 className="text-gray-800 text-2xl font-medium">
         Tente realizar outra busca.
