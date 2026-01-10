@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Fake Store
 
-## Getting Started
-
-First, run the development server:
+O deploy do projeto foi feito na Vercel, o mesmo pode ser acessado pelo seguinte lindk:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+https://fake-store-omega-ashen.vercel.app/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para rodar manualmente, execute os seguintes passos:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone o repositório
+```bash
+git clone https://github.com/santoskarolina/fake-store.git
+cd fake-store
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-## Learn More
+3. Inicie o projeto
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Acesse http://localhost:3000 no seu navegador.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Decisões Técnicas
 
-## Deploy on Vercel
+- Next.js (App Router): Utilizado pela facilidade de roteamento e suporte nativo a Server Components.
+- Server Components: Optei por realizar o fetch de dados no lado do servidor para melhorar o SEO e reduzir a carga de JavaScript no cliente.
+- Renderização Dinâmica (force-dynamic): Configurada para garantir que os dados da API externa sejam sempre buscados em tempo real, evitando cache estático viciado durante o build.
+- Zustand: Utilizado para gerenciar o estado global de produtos e categorias de forma leve
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Pontos de Melhoria
+- Implementação de Testes: Adicionar testes unitários com Jest.
+## Obervações
+Identifiquei que o ambiente de build da Vercel apresentava instabilidades ao conectar com a API da FakeStore, então optei pela renderização dinâmica para garantir a resiliência do sistema em produção
