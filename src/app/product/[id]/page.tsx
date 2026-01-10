@@ -1,4 +1,4 @@
-import { HeaderBar } from '@/src/app/_components/Header';
+import HeaderBar from '@/src/app/_components/Header';
 import { Suspense } from 'react';
 import Loading from './components/loading';
 import Breadcrumb from '@/src/app/_components/Breadcrumb';

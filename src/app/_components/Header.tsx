@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 
-const Header = () => {
+const HeaderBar = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -86,10 +86,4 @@ const Header = () => {
   );
 };
 
-export function HeaderBar() {
-  return (
-    <Suspense>
-      <Header />
-    </Suspense>
-  )
-}
+export default HeaderBar

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { HeaderBar } from "@/src/app/_components/Header";
+import HeaderBar from "@/src/app/_components/Header";
 import HomeContainer from "@/src/app/_components/Home";
 import Icons from "@/src/app/_components/Icons";
 import Image from "next/image";
