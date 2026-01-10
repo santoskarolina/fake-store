@@ -20,14 +20,16 @@ const Icons = () => {
   ];
 
   return (
-    <div className="flex justify-around p-4">
+    <div className="flex flex-wrap justify-center md:justify-around gap-8 p-4">
       {icons.map((icon) => (
-        <div key={icon.title} className="flex flex-col gap-1 items-center text-center">
-          <Image src={icon.img} width={24} height={24} alt={icon.title}></Image>
-          <p className="text-gray-800 font-bold">{icon.title}</p>
-          <span className="text-gray-700">{icon.description}</span>
+      <div key={icon.title} className="flex flex-col gap-2 items-center text-center p-2">
+        <div className="relative w-8 h-8 md:w-12 md:h-12">
+          <Image src={icon.img} fill alt={icon.title} className="object-contain" />
         </div>
-      ))}
+        <p className="text-gray-800 font-bold text-sm md:text-base">{icon.title}</p>
+        <span className="text-gray-700 text-xs md:text-sm">{icon.description}</span>
+      </div>
+    ))}
     </div>
   );
 };
