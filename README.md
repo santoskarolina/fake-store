@@ -43,9 +43,7 @@ Acesse http://localhost:3000 no seu navegador.
 ## Trade-offs
 - **Client-side Fetching vs. Server-side Rendering (SSR):**
 
-   Migrei a busca de dados para o lado do cliente ('use client' + useEffect), dessa forma, perdi um pouco da performance inicial de SEO e o "HTML pronto" que o servidor enviaria. Mas optei por essa abordagem para garantir a confiabilidade da entrega de dados.
-
-   Como a api do fakeStore apresentou instabilidade de conexão com o ambiente de build da vercel, o fetch no cliente garante que o usuário final consiga visializar os produtos, contornando bloqueios de rede que ocorriam no servidor.
+   Inicialmente havia feito o fetch no lado do servidor, utilizando Server Componente para otimizar a performance e SEO. Mas durante o deploy na vercel, identifiquei gargalos em relação a instabilidade de rede entre o ambiente de execução da Vercel e a api da fakeStore, isso causava o congelamento dos dados. Dessa forma, optei por realizar o fetch no lado do cliente ('use client') para garantir a disponibilidade do conteúdo, evitando que instabilidades de rede entre a Vercel e a API externa durante o build comprometessem a visualização do catálogo pelos usuários.
 
 - **Renderização Dinâmica (force-dynamic):**
 
