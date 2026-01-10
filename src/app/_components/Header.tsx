@@ -30,7 +30,7 @@ const Header = () => {
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   return (
-    <header className="flex bg-[#292715] w-full p-4 border-b-yellow-500 border-b-2 gap-4 items-center justify-center">
+    <header className="flex bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
       <div className="w-40 shrink-0">
         <Link href={`/`}>
           <Image
