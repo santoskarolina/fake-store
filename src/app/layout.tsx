@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Fake Store",
-  description: "Página para listagem de produtos utilizando Next.Js e a api Fake Store Api",
+  description: "Página para listagem de produtos utilizando Next.Js e Platzi Fake Store API",
   authors: [
     { name: "Ana Karolina", url: "https://github.com/santoskarolina" },
   ],

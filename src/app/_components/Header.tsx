@@ -33,7 +33,7 @@ const Header = () => {
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   return (
-    <header className="z-100 flex fixed flex-col md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
+    <header className="z-50 flex fixed top-0 left-0 flex-col h-40 md:h-20 md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
       <div className="w-full md:w-40 flex justify-center md:justify-start shrink-0">
         <Link href={`/`}>
           <Image

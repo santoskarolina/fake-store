@@ -9,7 +9,7 @@ import ProductsSkeleton from "./_components/ProductsSkeleton";
 export default async function ({ searchParams }: { searchParams: Promise<{ category?: string, title?: string }>}) {
   const filters = await searchParams;
   return (
-    <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
+    <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans md:pt-20 pt-40">
       <Image
         src="/banner.jpg"
         alt="Fake Store"
