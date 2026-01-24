@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Icons from "@/src/app/_components/Icons";
 import Image from "next/image";
 import { Suspense } from "react";
