@@ -15,7 +15,7 @@ export const getProducts = async (): Promise<Product[]> => {
   const response = await fetch(BASE_URL, options);
   if (!response.ok) {
     console.error(`Erro API: ${response.status} ${response.statusText}`);
-    throw new Error('Falha ao carregar produtos');
+    throw new Error(`API respondeu com status ${response.status} | ${response.statusText}`);
   }
   return response.json();
 };
