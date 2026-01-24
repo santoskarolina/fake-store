@@ -8,7 +8,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-100 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h2 className="text-xl font-bold text-red-600">Ops! Algo deu errado.</h2>
       <p className="text-zinc-600 mb-4">{error.message}</p>
       <button
