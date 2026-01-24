@@ -24,7 +24,7 @@ const Products = () => {
   const filteredProducts = useMemo(() => {
     return allProducts.filter((product) => {
       const matchTitle = product.title.toLowerCase().includes(titleParam.toLowerCase());
-      const matchCategory = product.category.toLowerCase().includes(categoryParam.toLowerCase());
+      const matchCategory = product.category.name.toLowerCase().includes(categoryParam.toLowerCase());
       return matchTitle && matchCategory;
     });
   }, [allProducts, titleParam, categoryParam]);

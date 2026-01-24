@@ -1,11 +1,12 @@
 import { create } from "zustand";
 import { Product } from "@/src/app/_types/product";
+import { Category } from "../_types/category";
 
 interface ProductStore {
   allProducts: Product[];
-  categories: string[];
+  categories: Category[];
   setProducts: (products: Product[]) => void;
-  setCategories: (categories: string[]) => void;
+  setCategories: (categories: Category[]) => void;
   sortBy: (key: string) => void;
 }
 

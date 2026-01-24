@@ -64,7 +64,7 @@ const Header = () => {
           >
             <option value="">Todas as Categorias</option>
             {categories.map((category) => (
-              <option value={category} key={category}>{category}</option>
+              <option value={category.name} key={category.id}>{category.name}</option>
             ))}
           </select>
           <button
