@@ -21,10 +21,6 @@ const Products = () => {
     { label: 'Maior Preço', value: 'maxValue' },
   ];
 
-  // useEffect(() => {
-  //   filter(titleParam, categoryParam);
-  // }, [titleParam, categoryParam, filter]);
-
   const filteredProducts = useMemo(() => {
     return allProducts.filter((product) => {
       const matchTitle = product.title.toLowerCase().includes(titleParam.toLowerCase());
