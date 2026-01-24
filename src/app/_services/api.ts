@@ -5,9 +5,13 @@ const BASE_URL: string = 'https://fakestoreapi.com/products';
 
 const options: RequestInit = {
   cache: 'no-store',
+  next: { revalidate: 0 },
   headers: {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Content-Type': 'application/json'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Referer': 'https://fakestoreapi.com/',
+    'Origin': 'https://fakestoreapi.com/'
   }
 }
 
