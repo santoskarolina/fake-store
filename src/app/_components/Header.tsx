@@ -10,17 +10,17 @@ const Header = () => {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const titleParam = searchParams.get("searchTitle") || "";
-  const categoryParam = searchParams.get("searchCategory") || "";
+  const titleParam = searchParams.get("title") || "";
+  const categoryParam = searchParams.get("categoryId") || "";
 
-  const [searchTitle, setSearchTitle] = useState<string>(titleParam);
-  const [searchCategory, setCategory] = useState<string>(categoryParam);
+  const [title, settitle] = useState<string>(titleParam);
+  const [category, setCategory] = useState<string>(categoryParam);
   const categories = useProductStore((state) => state.categories);
 
   const handleSearch = () => {
     const query = new URLSearchParams();
-    if (searchTitle) query.set('searchTitle', searchTitle);
-    if (searchCategory) query.set('searchCategory', searchCategory);
+    if (title) query.set('title', title);
+    if (category) query.set('categoryId', category);
     const queryString = query.toString();
 
     if (!!params && !!params.id) {
@@ -33,7 +33,7 @@ const Header = () => {
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   return (
-    <header className="flex flex-col md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
+    <header className="z-100 flex fixed flex-col md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
       <div className="w-full md:w-40 flex justify-center md:justify-start shrink-0">
         <Link href={`/`}>
           <Image
@@ -48,8 +48,8 @@ const Header = () => {
       <div className="flex items-center flex-1 max-w-2xl">
         <div className="flex w-full items-center">
           <input
-            value={searchTitle}
-            onChange={(e) => setSearchTitle(e.target.value)}
+            value={title}
+            onChange={(e) => settitle(e.target.value)}
             type="text"
             placeholder="Buscar produtos..."
             className="bg-white text-black shadow-sm border h-10 px-4 w-full rounded-l-md outline-none focus:ring-2 focus:ring-yellow-600"
@@ -58,13 +58,13 @@ const Header = () => {
           <select
             onChange={onChangeOrdenation}
             name="category-filter"
-            value={searchCategory}
+            value={category}
             id="category-filter"
-            className="h-10 border border-l-0 bg-gray-50 px-1 md:px-2 text-xs md:text-sm text-gray-700 outline-none max-w-[100px] md:max-w-none"
+            className="h-10 border border-l-0 bg-gray-50 px-1 md:px-2 text-xs md:text-sm text-gray-700 outline-none max-w-25 md:max-w-none"
           >
             <option value="">Todas as Categorias</option>
             {categories.map((category) => (
-              <option value={category.name} key={category.id}>{category.name}</option>
+              <option value={category.id} key={category.id}>{category.name}</option>
             ))}
           </select>
           <button

@@ -38,3 +38,18 @@ export const getProductDetails = async (id: number): Promise<Product> => {
   }
   return response.json();
 };
+
+export const productsByFilter= async (filters: Record<string, any>): Promise<Product[]> => {
+  const cleanFilters = Object.fromEntries(
+    Object.entries(filters).filter(([_, value]) => value != null && value !== "")
+  );
+  const query = new URLSearchParams(cleanFilters).toString();
+
+  const response = await fetch(`${BASE_URL}/products/?${query}`, options);
+  
+  if (!response.ok) {
+    console.error(`Erro API: ${response.status} ${response.statusText}`);
+    throw new Error(`API respondeu com status ${response.status} | ${response.statusText}`);
+  }
+  return response.json();
+};

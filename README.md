@@ -25,17 +25,17 @@ npm run dev
 
 Acesse http://localhost:3000 no seu navegador.
 
-## Escolha do Next.Js
-Embora o Vite seja uma excelente ferramenta para Single Page Applications (SPAs) puras, a escolha pelo Next.js para este projeto foi estratégica devido aos seguintes fatores:
-
-- **Otimização Nativa de Imagens:** Utilizei o componente <Image /> do Next.js, que gerencia automaticamente o lazy loading e o redimensionamento de imagens (essencial para um catálogo de e-commerce com fotos externas da FakeStoreAPI).
-- **Roteamento baseado em arquivos:** O sistema de app router torna a criação de páginas de detalhes (/product/[id]) muito mais intuitiva e organizada do que a configuração manual de bibliotecas como o react-router-dom no Vite.
-- **Preparação para Escala:** O Next.js já traz embutido otimizações de fontes, metadados (SEO) e scripts que, em um cenário real de produção, colocariam a aplicação em um nível de performance superior ao de uma SPA comum.
-
 
 ## Decisões Técnicas
 
 - **Next.js (App Router)**: Utilizado pela facilidade de roteamento e suporte nativo a Server Components.
-- **Server Components**: Optei por realizar o fetch de dados no lado do servidor para melhorar o SEO e reduzir a carga de JavaScript no cliente.
-- **Renderização Dinâmica (force-dynamic)**: Configurada para garantir que os dados da API externa sejam sempre buscados em tempo real, evitando cache estático viciado durante o build.
+- **Server Components**: O fetch de dados é realizado no servidor, eliminando o uso de useEffect para carregamento inicial. Isso garante que o conteúdo esteja disponível para motores de busca (SEO) e reduz o processamento no lado do cliente.
 - **Zustand**: Utilizado para gerenciar o estado global de produtos e categorias de forma leve
+
+## Decisões Técnicas
+
+- **Framework**: Next.js (App Router)
+- **Estilização**: Tailwind CSS
+- **Gerenciamento de Estado**: Zustand
+- **API Externa**: Platzi Fake Store API
+- **Deploy & CI/CD**: Vercel & GitHub Actions

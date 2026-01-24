@@ -1,10 +1,10 @@
 import StoreInitializer from "./StoreInitializer";
 import Products from "./Products";
-import { getCategories, getProducts } from "../_services/api";
+import { getCategories, getProducts, productsByFilter } from "../_services/api";
 
-export default async function ProductsWrapper() {
-  const products = await getProducts();
+export default async function ProductsWrapper({ searchParams }: { searchParams: { category?: string, title?: string } }) {
   const categories = await getCategories();
+  const products = !!searchParams ? await productsByFilter(searchParams) : await getProducts();
 
   return (
     <>

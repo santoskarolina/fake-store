@@ -1,18 +1,12 @@
 "use client";
 
 import { useProductStore } from "@/src/app/_store/useProductStore";
-import { useSearchParams } from "next/navigation";
 import ProductCard from "./Product";
 import EmptyProducts from "./EmptyProducts";
-import { useMemo } from "react";
 
 const Products = () => {
   const sortBy = useProductStore((s) => s.sortBy);
   const allProducts = useProductStore((s) => s.allProducts);
-
-  const searchParams = useSearchParams();
-  const titleParam = searchParams.get("searchTitle") || "";
-  const categoryParam = searchParams.get("searchCategory") || "";
 
   const filterOtions: { label: string, value: string }[] = [
     { label: 'Padrão', value: 'default' },
@@ -20,14 +14,6 @@ const Products = () => {
     { label: 'Menor Preço', value: 'minValue' },
     { label: 'Maior Preço', value: 'maxValue' },
   ];
-
-  const filteredProducts = useMemo(() => {
-    return allProducts.filter((product) => {
-      const matchTitle = product.title.toLowerCase().includes(titleParam.toLowerCase());
-      const matchCategory = product.category.name.toLowerCase().includes(categoryParam.toLowerCase());
-      return matchTitle && matchCategory;
-    });
-  }, [allProducts, titleParam, categoryParam]);
 
   return (
     <div className="flex flex-col max-w-5xl mt-4 p-4 gap-4">
@@ -45,9 +31,9 @@ const Products = () => {
           }
         </select>
       </div>
-      {!!filteredProducts.length && (!titleParam || !categoryParam) ? (
+      {!!allProducts.length ? (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-          {filteredProducts.map((product) => (
+          {allProducts.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>
