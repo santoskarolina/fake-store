@@ -1,6 +1,8 @@
-import HeaderBar from '@/src/app/_components/Header';
+import Header from '@/src/app/_components/Header';
 import Breadcrumb from '@/src/app/_components/Breadcrumb';
-import Details from './components/Details';
+import DetailsWrapper from './components/DetailsWrapper';
+import { Suspense } from 'react';
+import Loading from './components/loading';
 
 interface ProductPageProps {
   params: Promise<{ id: number }>;
@@ -13,9 +15,11 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
    
   return (
     <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
-      <HeaderBar />
+      <Header />
       <Breadcrumb name={name} category={category}/>
-      <Details id={id} />
+      <Suspense fallback={<Loading />}>
+        <DetailsWrapper id={id} />
+      </Suspense>
     </div>
   )
 }

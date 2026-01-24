@@ -4,12 +4,12 @@ import { ProductDetails } from "../_types/product-details";
 const BASE_URL: string = 'https://fakestoreapi.com/products';
 
 const options: RequestInit = {
-    cache: 'no-store',
-    headers: {
-      'User-Agent': 'Mozilla/5.0',
-      'Content-Type': 'application/json'
-    }
+  cache: 'no-store',
+  headers: {
+    'User-Agent': 'Mozilla/5.0',
+    'Content-Type': 'application/json'
   }
+}
 
 export const getProducts = async (): Promise<Product[]> => {
   const response = await fetch(BASE_URL, options);
@@ -17,7 +17,7 @@ export const getProducts = async (): Promise<Product[]> => {
   return response.json();
 };
 
-export const getProductDetails= async (id: number): Promise<ProductDetails> => {
+export const getProductDetails = async (id: number): Promise<ProductDetails> => {
   const response = await fetch(`${BASE_URL}/${id}`, options);
   if (!response.ok) throw new Error('Falha ao carregar produto');
   return response.json();

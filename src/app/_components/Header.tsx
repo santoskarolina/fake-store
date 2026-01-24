@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
@@ -17,14 +17,17 @@ const Header = () => {
   const [searchCategory, setCategory] = useState<string>(categoryParam);
   const categories = useProductStore((state) => state.categories);
 
-  const filter = useProductStore((s) => s.filter);
-
   const handleSearch = () => {
+    const query = new URLSearchParams();
+    if (searchTitle) query.set('searchTitle', searchTitle);
+    if (searchCategory) query.set('searchCategory', searchCategory);
+    const queryString = query.toString();
+
     if (!!params && !!params.id) {
-      const query = new URLSearchParams({ searchTitle, searchCategory }).toString();
       router.push(`/?${query}`);
+    } else {
+      router.push(`?${queryString}`, { scroll: false });
     }
-    filter(searchTitle, searchCategory);
   };
 
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
@@ -83,10 +86,4 @@ const Header = () => {
   );
 };
 
-export default function HeaderBar() {
-  return (
-    <Suspense fallback={<div className="h-16 bg-[#292715] w-full" />}>
-      <Header />
-    </Suspense>
-  )
-}
+export default Header;

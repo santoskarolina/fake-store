@@ -1,34 +1,10 @@
 "use client";
 
-import EmptyProducts from "@/src/app/_components/EmptyProducts";
-import { getProductDetails } from "@/src/app/_services/api";
 import { ProductDetails } from "@/src/app/_types/product-details";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import Loading from "./loading";
 
-export default function Details({ id }: { id: number }) {
-  const [product, setProduct] = useState<ProductDetails | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
-
-  useEffect(() => {
-    const getItens = async () => {
-      try {
-        const data = await getProductDetails(id);
-        setProduct(data);
-        setLoading(false);
-      } catch {
-        setError(true);
-      }
-    };
-    getItens();
-  }, []);
-
-  if (loading) return <Loading />
-  if (error)  return <EmptyProducts message="Falha ao carregar dados do protudo." />
-
-  return !!product && (
+export default function Details({ product }: { product: ProductDetails }) {
+  return (
     <div className="grid w-full max-w-5xl gap-8 md:grid-cols-2 p-8 rounded-3xl">
       <div className="flex items-center justify-center bg-zinc-100 rounded-2xl overflow-hidden p-8 border border-zinc-200">
         <Image

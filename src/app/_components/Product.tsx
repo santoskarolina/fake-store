@@ -17,14 +17,10 @@ const ProductCard = ({ product }: { product: Product }) => {
       </h2>
       <p className="text-green-600 font-bold">${product.price}</p>
       <Link
-        href={{
-          pathname: `/product/${product.id}`,
-          query: { name: product.title, category: product.category },
-        }}
+        className="bg-brand-dark text-white py-2 rounded-xl w-full cursor-pointer mt-4 inline-block text-center"
+        href={{ pathname: `/product/${product.id}`, query: { name: product.title, category: product.category } }}
       >
-        <button className="bg-brand-dark text-white py-2 rounded-xl w-full cursor-pointer mt-4">
-          Ver Produto
-        </button>
+        Ver Produto
       </Link>
     </div>
   );

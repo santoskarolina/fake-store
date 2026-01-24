@@ -1,14 +1,14 @@
-export const dynamic = 'force-dynamic';
-
-import HeaderBar from "@/src/app/_components/Header";
-import HomeContainer from "@/src/app/_components/Home";
 import Icons from "@/src/app/_components/Icons";
 import Image from "next/image";
+import Header from "@/src/app/_components/Header";
+import { Suspense } from "react";
+import ProductsWrapper from "./_components/ProductsWrapper";
+import ProductsSkeleton from "./_components/ProductsSkeleton";
 
 export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
-      <HeaderBar />
+      <Header />
       <Image
         src="/banner.jpg"
         alt="Fake Store"
@@ -16,10 +16,13 @@ export default async function Home() {
         height={600}
         priority
         className="w-full h-auto object-cover"
+        style={{ height: 'auto' }}
       />
       <div className="max-w-5xl">
         <Icons />
-        <HomeContainer />
+        <Suspense fallback={<ProductsSkeleton />}>
+          <ProductsWrapper />
+        </Suspense>
       </div>
     </div>
   );
