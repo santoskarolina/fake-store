@@ -1,4 +1,3 @@
-import Header from '@/src/app/_components/Header';
 import Breadcrumb from '@/src/app/_components/Breadcrumb';
 import DetailsWrapper from './components/DetailsWrapper';
 import { Suspense } from 'react';
@@ -15,7 +14,6 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
    
   return (
     <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans">
-      <Header />
       <Breadcrumb name={name} category={category}/>
       <Suspense fallback={<Loading />}>
         <DetailsWrapper id={id} />

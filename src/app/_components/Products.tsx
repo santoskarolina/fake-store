@@ -14,7 +14,7 @@ const Products = () => {
   const titleParam = searchParams.get("searchTitle") || "";
   const categoryParam = searchParams.get("searchCategory") || "";
 
-  const filterOtions = [
+  const filterOtions: { label: string, value: string }[] = [
     { label: 'Padrão', value: 'default' },
     { label: 'Nome', value: 'name' },
     { label: 'Menor Preço', value: 'minValue' },
