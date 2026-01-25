@@ -8,7 +8,6 @@ const ProductCard = ({ product }: { product: Product }) => {
   
   return isValidImage && (
     <div className="border p-4 rounded-lg shadow">
-     
       <Image
         src={product.images[0]}
         width={160}
@@ -22,7 +21,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <p className="text-gray-600">{product.category.name}</p>
       <p className="text-green-600 font-bold">${product.price}</p>
       <Link
-        className="bg-zinc-300 mt-2 inline-block w-full text-center text-zinc-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-900 hover:text-white transition-all duration-300 border border-zinc-200 shadow-sm"
+        className="bg-zinc-900 mt-4 text-white inline-block w-full text-center cursor-pointer px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-800 transition-all duration-300 shadow-md"
         href={{ pathname: `/product/${product.id}`, query: { name: product.title, category: product.category.name, categoryId: product.category.id } }}
       >
         Ver Produto

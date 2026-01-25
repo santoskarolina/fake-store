@@ -33,11 +33,11 @@ export default function Details({ product }: { product: Product }) {
           </p>
         </div>
 
-        <div className="pt-6 space-y-4">
-          <button className="w-full bg-brand-dark text-white py-4 rounded-xl font-bold text-lg hover:bg-zinc-800 transition-colors shadow-lg active:scale-[0.98]">
+        <div className="pt-6 space-y-4 flex flex-col">
+          <button className="bg-transparent border border-zinc-300 text-zinc-900 cursor-pointer px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-100 transition-all duration-300">
             Adicionar ao Carrinho
           </button>
-          <button className="w-full bg-white border border-zinc-300 text-zinc-700 py-4 rounded-xl font-bold text-lg hover:bg-zinc-50 transition-colors">
+          <button className="bg-zinc-900 text-white cursor-pointer px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-800 transition-all duration-300 shadow-md">
             Comprar Agora
           </button>
         </div>
