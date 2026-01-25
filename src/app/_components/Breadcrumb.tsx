@@ -12,7 +12,7 @@ const Breadcrumb = ({ name, category, categoryId }: { name: string, category: st
   };
 
   return (
-    <div className="fixed top-40 h-14 md:top-20 left-0 flex z-40 flex-wrap bg-brand-dark w-full p-4 border-b-2 gap-4 items-star justify-start">
+    <div className="fixed top-40 h-14 md:top-20 left-0 flex z-40 bg-brand-dark w-full p-4 border-b-2 gap-4 items-star justify-start">
       <Link href="/" className="hover:underline text-gray-300 transition-colors">
         Produtos
       </Link>
