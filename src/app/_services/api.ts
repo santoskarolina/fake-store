@@ -45,6 +45,8 @@ export const productsByFilter= async (filters: Record<string, any>): Promise<Pro
   );
   const query = new URLSearchParams(cleanFilters).toString();
 
+  console.log(query)
+
   const response = await fetch(`${BASE_URL}/products/?${query}`, options);
   
   if (!response.ok) {

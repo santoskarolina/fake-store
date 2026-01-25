@@ -2,6 +2,7 @@ import Breadcrumb from '@/src/app/_components/Breadcrumb';
 import DetailsWrapper from './components/DetailsWrapper';
 import { Suspense } from 'react';
 import Loading from './components/loading';
+import SimilarProducts from '../../_components/SimilarProductsWrapper';
 
 interface ProductPageProps {
   params: Promise<{ id: number }>;
@@ -18,6 +19,11 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
       <Suspense fallback={<Loading />}>
         <DetailsWrapper id={id} />
       </Suspense>
+
+      <Suspense fallback={<Loading />}>
+        <SimilarProducts categoryId={categoryId}/>
+      </Suspense>
+
     </div>
   )
 }

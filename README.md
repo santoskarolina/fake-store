@@ -37,5 +37,5 @@ Acesse http://localhost:3000 no seu navegador.
 - **Framework**: Next.js (App Router)
 - **Estilização**: Tailwind CSS
 - **Gerenciamento de Estado**: Zustand
-- **API Externa**: Platzi Fake Store API
+- **API Externa**: Platzi Fake Store API (https://fakeapi.platzi.com/en)
 - **Deploy & CI/CD**: Vercel & GitHub Actions
