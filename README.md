@@ -26,11 +26,8 @@ npm run dev
 Acesse http://localhost:3000 no seu navegador.
 
 
-## Decisões Técnicas
-
-- **Next.js (App Router)**: Utilizado pela facilidade de roteamento e suporte nativo a Server Components.
-- **Server Components**: O fetch de dados é realizado no servidor, eliminando o uso de useEffect para carregamento inicial. Isso garante que o conteúdo esteja disponível para motores de busca (SEO) e reduz o processamento no lado do cliente.
-- **Zustand**: Utilizado para gerenciar o estado global de produtos e categorias de forma leve
+## Server Components
+ O fetch de dados é realizado no servidor, eliminando o uso de useEffect para carregamento inicial. Isso garante que o conteúdo esteja disponível para motores de busca (SEO) e reduz o processamento no lado do cliente.
 
 ## Decisões Técnicas
 
