@@ -5,7 +5,7 @@ import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { useCartStore } from "../_store/useCartStore";
+import { CartButton } from "./CartButton";
 
 const Header = () => {
   const params = useParams();
@@ -17,8 +17,6 @@ const Header = () => {
   const [title, settitle] = useState<string>(titleParam);
   const [category, setCategory] = useState<string>(categoryParam);
   const categories = useProductStore((state) => state.categories);
-  const totalItens = useCartStore(state => state.products.length);
-  
 
   const handleSearch = () => {
     const query = new URLSearchParams();
@@ -85,16 +83,7 @@ const Header = () => {
         </div>
       </div>
       <div className="md:block w-40 shrink-0 cursor-pointer">
-        <Link className="cursor-pointer flex gap-2" href={{ pathname: `/cart` }}>
-          <Image
-            src="/cart.png"
-            width={30}
-            className="invert"
-            height={30}
-            alt="Logo Marca da Loja Fake Store"
-          />
-          <p>{totalItens}</p>
-        </Link>
+        <CartButton />
       </div>
     </header>
   );

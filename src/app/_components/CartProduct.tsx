@@ -10,7 +10,7 @@ export const CardProduct = ({ item }: { item: Item }) => {
   const removeProduct = useCartStore((state) => state.removeProduct);
 
  return (
-    <div className="flex flex-col md:flex-row gap-6 items-center md:items-start justify-between border-b-2 border-b-gray-200 pb-6">
+    <div className="flex flex-col flex-wrap md:flex-row gap-6 items-center md:items-start justify-between border-b-2 border-b-gray-200 pb-6">
       
       <div className="shrink-0 bg-gray-50 rounded-lg p-2">
         <Image
