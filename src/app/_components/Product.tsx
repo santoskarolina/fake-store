@@ -11,6 +11,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <Image
         src={product.images[0]}
         width={160}
+        unoptimized
         height={160}
         alt="Logo Marca da Loja Fake Store"
         className="h-40 mx-auto"
@@ -19,9 +20,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         {product.title}
       </h2>
       <p className="text-gray-600">{product.category.name}</p>
-      <p className="text-green-600 font-bold">${product.price}</p>
+      <p className="text-green-600 font-bold">R$ {product.price}</p>
       <Link
-        className="bg-zinc-900 mt-4 text-white inline-block w-full text-center cursor-pointer px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-800 transition-all duration-300 shadow-md"
+        className="button mt-4 inline-block w-full text-center"
         href={{ pathname: `/product/${product.id}`, query: { name: product.title, category: product.category.name, categoryId: product.category.id } }}
       >
         Ver Produto

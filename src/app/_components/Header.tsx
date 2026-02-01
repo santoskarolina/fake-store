@@ -5,6 +5,7 @@ import { useProductStore } from "@/src/app/_store/useProductStore";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { useCartStore } from "../_store/useCartStore";
 
 const Header = () => {
   const params = useParams();
@@ -16,6 +17,8 @@ const Header = () => {
   const [title, settitle] = useState<string>(titleParam);
   const [category, setCategory] = useState<string>(categoryParam);
   const categories = useProductStore((state) => state.categories);
+  const totalItens = useCartStore(state => state.products.length);
+  
 
   const handleSearch = () => {
     const query = new URLSearchParams();
@@ -33,8 +36,8 @@ const Header = () => {
   const onChangeOrdenation = (e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value);
 
   return (
-    <header className="z-50 flex fixed top-0 left-0 flex-col h-40 md:h-20 md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-center">
-      <div className="w-full md:w-40 flex justify-center md:justify-start shrink-0">
+    <header className="z-50 flex fixed top-0 left-0 flex-col h-40 md:h-20 md:flex-row bg-brand-blue w-full p-4 border-b-blue-950 border-b-2 gap-4 items-center justify-between">
+      <div className="md:w-40 flex justify-center md:justify-center shrink-0">
         <Link href={`/`}>
           <Image
             src="/vercel.svg"
@@ -45,7 +48,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="flex items-center flex-1 max-w-2xl">
+      <div className="flex items-center max-w-2xl flex-1">
         <div className="flex w-full items-center">
           <input
             value={title}
@@ -81,7 +84,18 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="hidden md:block w-40 shrink-0"></div>
+      <div className="md:block w-40 shrink-0 cursor-pointer">
+        <Link className="cursor-pointer flex gap-2" href={{ pathname: `/cart` }}>
+          <Image
+            src="/cart.png"
+            width={30}
+            className="invert"
+            height={30}
+            alt="Logo Marca da Loja Fake Store"
+          />
+          <p>{totalItens}</p>
+        </Link>
+      </div>
     </header>
   );
 };
